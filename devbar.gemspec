@@ -9,10 +9,9 @@ Gem::Specification.new do |gem|
   gem.authors       = ["John Beynon"]
   gem.email         = ["john@beynon.org.uk"]
   gem.description   = %q{ Rack middleware to output a bar showing environment }
+  gem.summary       = %q{ Middleware to show what env your app is running in }
   gem.homepage      = "http://github.com/johnbeynon/devbar"
 
   gem.files         = `git ls-files`.split($/)
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 end
