@@ -1,6 +1,7 @@
 # Devbar
 
-TODO: Write a gem description
+Displays a fixed position bar across application showing current Rails
+environment
 
 ## Installation
 
@@ -16,9 +17,9 @@ Or install it yourself as:
 
     $ gem install devbar
 
-## Usage
+Then add it to your environment files where you want it used:
 
-TODO: Write usage instructions here
+    config.middleware.use Rack::DevBar
 
 ## Contributing
 
