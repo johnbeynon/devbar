@@ -3,6 +3,8 @@
 Displays a fixed position bar across application showing current Rails
 environment
 
+![Dev Bar Screenshot](https://lh3.googleusercontent.com/-i0B9rfhuRJs/UUDxpQjT5MI/AAAAAAAAdAM/B58uQL0bmKk/s600/dev_bar_screenshot.png)
+
 ## Installation
 
 Add this line to your application's Gemfile:
