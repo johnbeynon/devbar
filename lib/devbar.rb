@@ -26,7 +26,7 @@ module Rack
     end
 
     def bar
-      "<div style='height:30px;width:100%;background:red;bottom:0;padding:5px;font-weight:bold:0;position:fixed;right:0;text-align:center;font-weight:bold;color:white;z-index:999;opacity:0.7;'>#{ ENV['RAILS_ENV'].upcase } ENVIRONMENT</div>"
+      "<div style='height:30px;width:100%;background:red;bottom:0;padding:5px;font-weight:bold:0;position:fixed;right:0;text-align:center;font-weight:bold;color:white;z-index:999;opacity:0.7;transition:opacity .15s;-webkit-transition:opacity .15s' onmouseover='this.style.opacity=0.1' onmouseout='this.style.opacity=0.7'>#{ ENV['RAILS_ENV'].upcase } ENVIRONMENT</div>"
     end
   end
 end
