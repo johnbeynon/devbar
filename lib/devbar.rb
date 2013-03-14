@@ -8,7 +8,6 @@ module Rack
 
     def call(env)
       status, headers, body  = @app.call(env)
-      return [status, headers, response] unless headers['Content-Type'] =~ /html/
 
       body.each do |part|
         if part =~ /<\/body>/
