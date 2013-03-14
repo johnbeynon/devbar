@@ -7,15 +7,22 @@ module Rack
     end
 
     def call(env)
-      status, headers, response = @app.call(env)
+      status, headers, body  = @app.call(env)
+      return [status, headers, response] unless headers['Content-Type'] =~ /html/
 
-      if headers["Content-Type"].include? "text/html"
-        full_body = response.body
-        full_body.sub! /<\/body>/, bar + "</body>"
-        response.body = full_body
+      body.each do |part|
+        if part =~ /<\/body>/
+          part.sub!(/<\/body>/, "#{bar}</body>")
+
+          if headers['Content-Length']
+            headers['Content-Length'] = (headers['Content-Length'].to_i + bar.length).to_s
+          end
+
+          break
+        end
       end
 
-      [status, headers, response]
+      [status, headers, body]
     end
 
     def bar
