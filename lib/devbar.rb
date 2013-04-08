@@ -25,7 +25,7 @@ module Rack
     end
 
     def bar
-      "<div style='height:24px;width:100%;font-size:12px;font-family:helvetica,arial;padding:0;margin:0;line-height:2em;background:red;bottom:0;font-weight:bold;position:fixed;right:0;text-align:center;font-weight:bold;color:white;z-index:999;opacity:0.7;transition:opacity .15s;-webkit-transition:opacity .15s' onmouseover='this.style.opacity=0.1' onmouseout='this.style.opacity=0.7'>#{ Rails.env.upcase } ENVIRONMENT</div>"
+      %(<div style="height:24px;width:100%;font-size:12px;font-family:helvetica,arial;background-color:red;bottom:0;position:fixed;right:0; text-align:center;color:white;z-index:999;opacity:0.7;line-height:24px;font-weight:bold;" onmouseover="if(this.style.bottom=='0px'){this.style.top=0;this.style.bottom=null}else{this.style.bottom=0;this.style.top=null}">#{ Rails.env.upcase } ENVIRONMENT</div>)
     end
   end
 end
