@@ -9,15 +9,17 @@ module Rack
     def call(env)
       status, headers, body  = @app.call(env)
 
-      body.each do |part|
-        if part =~ /<\/body>/
-          part.sub!(/<\/body>/, "#{bar}</body>")
+      if body && body.respond_to?(:each)
+        body.each do |part|
+          if part =~ /<\/body>/
+            part.sub!(/<\/body>/, "#{bar}</body>")
 
-          if headers['Content-Length']
-            headers['Content-Length'] = (headers['Content-Length'].to_i + bar.length).to_s
+            if headers['Content-Length']
+              headers['Content-Length'] = (headers['Content-Length'].to_i + bar.length).to_s
+            end
+
+            break
           end
-
-          break
         end
       end
 
